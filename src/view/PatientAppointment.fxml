@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" >
+    <top>
+        <HBox id="navbar" BorderPane.alignment="TOP_CENTER" >
+            <children>
+                <Label id="doctorname" fx:id="doctorName" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="navButton" fx:id="newAppointment" text="Nieuwe Afspraak +" />
+                <Region id="test"/>
+                <Button styleClass="navButton" fx:id="backButton" text="Terug Naar Overview" />
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox  style="-fx-background-color: #808080;" minWidth="200" maxWidth="300">
+            <Label styleClass="patientLabel" fx:id="name" />
+            <Label styleClass="patientLabel" fx:id="bsn"/>
+            <Label styleClass="patientLabel" fx:id="dateOfBirth" />
+            <Label styleClass="patientLabel" fx:id="gender" />
+            <Label styleClass="patientLabel" fx:id="adress" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="TOP_CENTER">
+            <ScrollPane id="scrollPane" style="-fx-background-color: teal;" fitToHeight="true" fitToWidth="true">
+                <VBox fx:id="allAppointmentsHolder" style="-fx-background-color: teal;" alignment="TOP_CENTER" >
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@/view/css/patientdossier.css"/>
+    </stylesheets>
+</BorderPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" >
+    <top>
+        <HBox id="navbar" BorderPane.alignment="TOP_CENTER" >
+            <children>
+                <Label fx:id="doctorName" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="navButton" fx:id="backButton" text="Terug Naar Overview" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="TOP_CENTER">
+            <VBox  id="form">
+                <HBox styleClass="formField" >
+                    <Label id="newMedicineLabel" text="Nieuw Medicijn" />
+                </HBox>
+                <HBox styleClass="formField" >
+                    <Label text="Naam medicijn:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="medicineName" promptText="Naam" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Omschrijving:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="medicineDescription" promptText="Omschrijving" />
+                </HBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <HBox styleClass="formField" >
+                    <Button id="confirmForm" fx:id="confirmForm" text="Creëer Medicijn"  />
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@css/patientForm.css"/>
+    </stylesheets>
+</BorderPane>

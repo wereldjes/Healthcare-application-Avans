@@ -1,0 +1,68 @@
+BorderPane {
+    -fx-background-color: teal;
+}
+
+#navbar {
+    -fx-padding: 15px;
+    -fx-background-color: #606060;
+}
+
+.navButton {
+    -fx-background-color: green;
+    -fx-background-insets: 0;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px;
+}
+
+.navButton:hover {
+    -fx-background-color: darkgreen;
+}
+
+Label {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+}
+
+.deleteMedicine {
+    -fx-border-width: 1 1 1 0;
+    -fx-background-color: #d9534f;
+    -fx-pref-width: 70px;
+    -fx-border-color: black;
+    -fx-background-insets: 0;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.deleteMedicine:hover {
+    -fx-background-color: #d1332e;
+}
+
+.updateMedicine {
+    -fx-background-color: #f0ad4e;
+    -fx-border-color: black;
+    -fx-background-insets: 0;
+    -fx-pref-width: 70px;
+    -fx-border-width: 1 0 1 1;
+    -fx-font-weight: bold;
+}
+
+.updateMedicine:hover {
+    -fx-background-color: #d38312;
+}
+
+.buttonDiv {
+    -fx-background-color: #808080;
+    -fx-max-width: 1000px;
+    -fx-pref-height: 30px;
+    -fx-padding: 15;
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+    -fx-border-color: black;
+}
+
+Region {
+    -fx-pref-width: 10px;
+    -fx-min-width: 10px;
+}

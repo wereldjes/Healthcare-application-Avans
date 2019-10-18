@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<BorderPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox id="navbar" BorderPane.alignment="TOP_CENTER" >
+            <children>
+                <Label fx:id="doctorName" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Region id="test"/>
+                <Button fx:id="previousPage"  text="Terug naar Overview" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="TOP_CENTER">
+            <VBox  id="form">
+                <HBox styleClass="formField" >
+                    <Label id="newPatientLabel" text="Nieuwe Patient" />
+                </HBox>
+                <HBox styleClass="formField" >
+                    <Label text="Voornaam:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="voornaam" promptText="Voornaam" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Achternaam:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="achternaam" promptText="Achternaam" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="BSN:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="bsn" promptText="BSN" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Geboortedatum:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="geboortedatum" promptText="yyyy/MM/dd" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Geslacht:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="geslacht" promptText="male/female" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Woonplaats" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="woonplaats" promptText="Woonplaats" />
+                </HBox>
+                <HBox styleClass="formField" >
+                    <Button fx:id="confirmPatientForm" text="creëer patient" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@css/patientForm.css" />
+    </stylesheets>
+
+</BorderPane>

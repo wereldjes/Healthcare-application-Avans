@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 13-okt-2019, 4:55:54
+    Author     : Dominique
+*/
+
+BorderPane {
+    -fx-background-color: teal;
+}
+
+#navbar {
+    -fx-padding: 15px;
+    -fx-background-color: #606060;
+}
+
+.formField {
+    -fx-alignment: TOP_CENTER;
+    -fx-border-insets: 10px;
+    -fx-background-insets: 10px;
+    -fx-padding: 10px;
+}
+
+#form {
+    -fx-max-width: 450px;
+    -fx-pref-width: 450px;
+    -fx-min-height: 475px;
+    -fx-max-height: 475px;
+    -fx-padding: 15px;
+    -fx-border-insets: 10px;
+    -fx-background-insets: 10px;
+    -fx-background-color: #808080;
+}
+
+HBox Button {
+    -fx-background-insets: 0;
+    -fx-background-color: green;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px;
+}
+
+#newPatientLabel {
+    -fx-font-size: 40px;
+}
+
+#newMedicineLabel {
+    -fx-font-size: 40px;
+}
+
+Button:hover {
+    -fx-background-color: darkgreen;
+}

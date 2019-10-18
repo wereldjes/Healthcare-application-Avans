@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<GridPane id="AnchorPane" prefHeight="500" prefWidth="750" xmlns:fx="http://javafx.com/fxml/1" >
+    <TextField promptText="username" fx:id="username" styleClass="textfield" GridPane.rowIndex="1" />
+    <PasswordField promptText="password" fx:id="passwordField" styleClass="textfield" GridPane.rowIndex="2"/>
+    <Button text="Log in !" fx:id="loginButton" id="button" GridPane.rowIndex="5"/>
+    <Label minHeight="16" minWidth="69" fx:id="error" id="errorlabel" GridPane.rowIndex="0" />
+
+    <stylesheets>
+        <URL value="@css/main.css" />
+    </stylesheets>
+</GridPane>

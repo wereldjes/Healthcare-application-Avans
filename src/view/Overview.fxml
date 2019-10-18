@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<BorderPane fx:id="borderPane" id="body" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox id="navbar" BorderPane.alignment="TOP_CENTER" >
+            <children>
+                <Label fx:id="doctorName" />
+                <Region HBox.hgrow="ALWAYS" />
+                <TextField promptText="Zoeken..." />
+                <Region id="test"/>
+                <Button styleClass="navButton" fx:id="medicine" text="Medicijnen" />
+                <Region id="test"/>
+                <Button styleClass="navButton" fx:id="disease" text="Ziektes" />
+                <Region id="test"/>
+                <Button styleClass="navButton" fx:id="newPatient" text="Nieuwe Patient +" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox fx:id="patientList" alignment="TOP_CENTER" >
+            <children>
+
+            </children>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@css/overview.css" />
+    </stylesheets>
+</BorderPane>

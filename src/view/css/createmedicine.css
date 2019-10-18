@@ -1,0 +1,26 @@
+BorderPane {
+    -fx-background-color: teal;
+}
+
+#navbar {
+    -fx-padding: 15px;
+    -fx-background-color: #606060;
+}
+
+.formField {
+    -fx-alignment: TOP_CENTER;
+    -fx-border-insets: 10px;
+    -fx-background-insets: 10px;
+    -fx-padding: 10px;
+}
+
+#form {
+    -fx-max-width: 450px;
+    -fx-pref-width: 450px;
+    -fx-min-height: 475px;
+    -fx-max-height: 475px;
+    -fx-padding: 15px;
+    -fx-border-insets: 10px;
+    -fx-background-insets: 10px;
+    -fx-background-color: #808080;
+}

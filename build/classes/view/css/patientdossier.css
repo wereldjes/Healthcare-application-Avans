@@ -1,0 +1,69 @@
+BorderPane {
+    -fx-background-color: teal;
+}
+
+#navbar {
+    -fx-padding: 15px;
+    -fx-background-color: #606060;
+}
+
+.navButton {
+    -fx-background-color: green;
+    -fx-background-insets: 0;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px;
+}
+
+.navButton:hover {
+    -fx-background-color: darkgreen;
+}
+
+Region {
+    -fx-pref-width: 10px;
+    -fx-min-width: 10px;
+}
+
+#doctorname {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+}
+
+.patientLabel {
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+    -fx-font-size: 20px;
+    -fx-padding: 10px;
+}
+
+#appointment {
+    -fx-max-width: 1000px;
+    -fx-background-color: #808080;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px;
+    -fx-padding: 15;
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+}
+
+.diseaseName {
+    -fx-font-size: 30px;
+    -fx-underline: true;
+    -fx-font-family: "Arial"
+}
+
+#appointment Label {
+    -fx-font-weight: bold;
+}
+
+.marginator {
+    -fx-min-height: 10px;
+    -fx-max-height: 10px;
+}
+
+ScrollPane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+}

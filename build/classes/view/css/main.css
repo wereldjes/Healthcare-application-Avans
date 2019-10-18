@@ -1,0 +1,33 @@
+#button:hover {
+    -fx-background-color: darkgreen;
+}
+
+#button {
+    -fx-min-width: 200px;
+    -fx-columnindex: 5;
+    -fx-rowindex: 0;
+    -fx-background-color: green;
+    -fx-padding-top: 10px;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px;
+    -fx-background-insets: 0;
+}
+
+#errorlabel {
+    -fx-min-width: 200px;
+    -fx-text-fill: firebrick;
+    -fx-alignment: center;
+}
+
+.textfield {
+    -fx-min-width: 200px;
+}
+
+GridPane {
+    -fx-background-color: darkgray;
+    -fx-padding: 10px;
+    -fx-hgap: 10px;
+    -fx-vgap: 5px;
+    -fx-alignment: center;
+}
