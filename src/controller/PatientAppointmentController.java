@@ -30,6 +30,7 @@ import javafx.stage.Stage;
 import model.Appointment;
 import model.Doctor;
 import model.Patient;
+import view.UpdateAppointmentController;
 
 /**
  * FXML Controller class
@@ -79,9 +80,12 @@ public class PatientAppointmentController implements Initializable {
             Region marginator = new Region();
             Region marginator2 = new Region();
             Button deleteAppointment = new Button();
+            Button updateAppointment = new Button();
 
             deleteAppointment.setId(String.valueOf(a.getId()));
             deleteAppointment.setText("X");
+            updateAppointment.setId(String.valueOf(a.getId()));
+            updateAppointment.setText("Upd.");
 
             marginator.getStyleClass().add("marginator");
             marginator2.getStyleClass().add("marginator");
@@ -99,6 +103,7 @@ public class PatientAppointmentController implements Initializable {
 
             descriptionHolder.getChildren().add(diseaseName);
             descriptionHolder.getChildren().add(deleteAppointment);
+            descriptionHolder.getChildren().add(updateAppointment);
             descriptionHolder.getChildren().add(marginator);
             descriptionHolder.getChildren().add(medicineName);
             startToEndDate.getChildren().add(startDate);
@@ -110,6 +115,7 @@ public class PatientAppointmentController implements Initializable {
             allAppointmentsHolder.getChildren().add(descriptionHolder);
 
             deleteAppointment.setOnAction(event -> deleteAppointment(deleteAppointment));
+            updateAppointment.setOnAction(event -> updateAppointmentOverview(updateAppointment));
         }
 
         backButton.setOnAction(event -> patientOverview());
@@ -161,6 +167,15 @@ public class PatientAppointmentController implements Initializable {
     public void deleteAppointment(Button b) {
         AppointmentDAO.getInstance().deleteAppointment(Integer.valueOf(b.getId()));
         PatientAppointmentController pac = new PatientAppointmentController(getWindow(), doctor, patient);
+    }
+
+    @FXML
+    public void updateAppointmentOverview(Button b) {
+        try {
+            UpdateAppointmentController uac = new UpdateAppointmentController(getWindow());
+        } catch (Exception ex) {
+            Logger.getLogger(PatientAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public Stage getWindow() {

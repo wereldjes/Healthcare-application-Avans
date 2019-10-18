@@ -22,4 +22,6 @@ public interface IAppointment {
 
     void deleteAppointment(int id);
 
+    public Appointment getAppointment(Appointment a);
+
 }

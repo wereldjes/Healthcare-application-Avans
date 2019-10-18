@@ -88,7 +88,26 @@ public class AppointmentDAO implements IAppointment {
 
     @Override
     public void updateAppointment(Appointment a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        String query = "UPDATE appointment SET id= ?, problem_description = ?, startdate_medicine = ?, "
+                + "enddate_medicine = ?, disease_name = ?, medicine_name = ?, patient_id = ?";
+
+        try {
+            con = MysqlConnector.getInstance().connect();
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, a.getId());
+            st.setString(2, a.getProblemDescription());
+            st.setDate(3, a.getStartdateMedicine());
+            st.setDate(4, a.getEnddateMedicine());
+            st.setString(5, a.getDiseaseName());
+            st.setString(6, a.getMedicineName());
+            st.setInt(7, a.getPatientId());
+
+            st.executeUpdate();
+            st.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AppointmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -106,6 +125,20 @@ public class AppointmentDAO implements IAppointment {
         } catch (SQLException ex) {
             Logger.getLogger(AppointmentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public Appointment getAppointment(Appointment a) {
+        Connection con = null;
+        String query = "SELECT * FROM appointment WHERE id = ?";
+
+        try {
+            con = MysqlConnector.getInstance().connect();
+            PreparedStatement st = con.prepareStatement(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(AppointmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox id="navbar" BorderPane.alignment="TOP_CENTER" >
+            <children>
+                <Label fx:id="doctorName" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button styleClass="navButton" fx:id="backButton" text="Terug Naar Overview" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox alignment="TOP_CENTER">
+            <VBox  id="form">
+                <HBox styleClass="formField" >
+                    <Label id="appointmentLabel" text="Nieuwe Afspraak" />
+                </HBox>
+                <HBox styleClass="formField" >
+                    <Label text="Klachten Omschrijving:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextArea fx:id="patientProblems" promptText="Klachten Omschrijving..."  maxWidth="300" maxHeight="100" wrapText="true"/>
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Constatering Ziekte" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="diseaseName" minWidth="300" promptText="Kies Ziekte..." />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Medicijn voor Ziekte:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="medicineName" minWidth="300" promptText="Kies Medicijn..." />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Startdatum Gebruik Medicijn:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="startdateMedicine" minWidth="300" promptText="jjjj/mm/dd" />
+                </HBox>
+                <HBox styleClass="formField">
+                    <Label text="Einddatum Gebruik Medicijn:" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="enddateMedicine" minWidth="300" promptText="jjjj/mm/dd"/>
+                </HBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <HBox styleClass="formField" >
+                    <Button styleClass="navButton" id="confirmForm" fx:id="confirmForm" text="Creëer Afspraak"  />
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@css/newAppointment.css"/>
+    </stylesheets>
+</BorderPane>
