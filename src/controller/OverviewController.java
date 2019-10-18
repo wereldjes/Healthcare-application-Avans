@@ -31,7 +31,6 @@ import model.Patient;
 
 public class OverviewController implements Initializable {
 
-    private PatientAppointmentController patientDossierController;
     private Doctor doctor;
 
     @FXML

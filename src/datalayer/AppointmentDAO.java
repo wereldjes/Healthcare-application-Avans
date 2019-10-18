@@ -93,7 +93,19 @@ public class AppointmentDAO implements IAppointment {
 
     @Override
     public void deleteAppointment(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        String query = "DELETE FROM appointment WHERE id = ?";
+
+        try {
+            con = MysqlConnector.getInstance().connect();
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, id);
+
+            st.execute();
+            st.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AppointmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

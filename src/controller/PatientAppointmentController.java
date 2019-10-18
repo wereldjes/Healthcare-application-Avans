@@ -8,8 +8,6 @@ package controller;
 import datalayer.AppointmentDAO;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +18,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -35,7 +38,7 @@ import model.Patient;
  */
 public class PatientAppointmentController implements Initializable {
 
-    private static Doctor doctor;
+    private Doctor doctor;
     private Patient patient;
 
     @FXML
@@ -56,6 +59,8 @@ public class PatientAppointmentController implements Initializable {
     private VBox allAppointmentsHolder;
     @FXML
     private Button newAppointment;
+    @FXML
+    private BorderPane borderPane;
 
     /**
      * Initializes the controller class.
@@ -73,6 +78,10 @@ public class PatientAppointmentController implements Initializable {
             Label endDate = new Label();
             Region marginator = new Region();
             Region marginator2 = new Region();
+            Button deleteAppointment = new Button();
+
+            deleteAppointment.setId(String.valueOf(a.getId()));
+            deleteAppointment.setText("X");
 
             marginator.getStyleClass().add("marginator");
             marginator2.getStyleClass().add("marginator");
@@ -86,8 +95,10 @@ public class PatientAppointmentController implements Initializable {
             endDate.setText(String.valueOf(a.getEnddateMedicine()));
             problemDescription.setText("Omschrijving klachten patient: " + a.getProblemDescription());
             diseaseName.setText(a.getDiseaseName());
+            diseaseName.setAlignment(Pos.CENTER_LEFT);
 
             descriptionHolder.getChildren().add(diseaseName);
+            descriptionHolder.getChildren().add(deleteAppointment);
             descriptionHolder.getChildren().add(marginator);
             descriptionHolder.getChildren().add(medicineName);
             startToEndDate.getChildren().add(startDate);
@@ -97,6 +108,8 @@ public class PatientAppointmentController implements Initializable {
             descriptionHolder.getChildren().add(marginator2);
             descriptionHolder.getChildren().add(problemDescription);
             allAppointmentsHolder.getChildren().add(descriptionHolder);
+
+            deleteAppointment.setOnAction(event -> deleteAppointment(deleteAppointment));
         }
 
         backButton.setOnAction(event -> patientOverview());
@@ -129,8 +142,7 @@ public class PatientAppointmentController implements Initializable {
     @FXML
     public void patientOverview() {
         try {
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            OverviewController oc = new OverviewController(stage, doctor);
+            OverviewController oc = new OverviewController(getWindow(), doctor);
         } catch (Exception ex) {
             Logger.getLogger(PatientAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -139,11 +151,20 @@ public class PatientAppointmentController implements Initializable {
     @FXML
     public void newAppointmentOverview() {
         try {
-            Stage stage = (Stage) newAppointment.getScene().getWindow();
-            NewAppointmentController nac = new NewAppointmentController(stage, doctor, patient);
+            NewAppointmentController nac = new NewAppointmentController(getWindow(), doctor, patient);
         } catch (Exception ex) {
             Logger.getLogger(PatientAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    @FXML
+    public void deleteAppointment(Button b) {
+        AppointmentDAO.getInstance().deleteAppointment(Integer.valueOf(b.getId()));
+        PatientAppointmentController pac = new PatientAppointmentController(getWindow(), doctor, patient);
+    }
+
+    public Stage getWindow() {
+        Stage stage = (Stage) borderPane.getScene().getWindow();
+        return stage;
+    }
 }
