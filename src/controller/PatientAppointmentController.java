@@ -30,7 +30,6 @@ import javafx.stage.Stage;
 import model.Appointment;
 import model.Doctor;
 import model.Patient;
-import view.UpdateAppointmentController;
 
 /**
  * FXML Controller class
@@ -172,7 +171,8 @@ public class PatientAppointmentController implements Initializable {
     @FXML
     public void updateAppointmentOverview(Button b) {
         try {
-            UpdateAppointmentController uac = new UpdateAppointmentController(getWindow());
+            Appointment a = AppointmentDAO.getInstance().getAppointment(Integer.valueOf(b.getId()));
+            UpdateAppointmentController uac = new UpdateAppointmentController(getWindow(), doctor, patient, a);
         } catch (Exception ex) {
             Logger.getLogger(PatientAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -22,7 +22,7 @@
         <HBox alignment="TOP_CENTER">
             <VBox  id="form">
                 <HBox styleClass="formField" >
-                    <Label id="appointmentLabel" text="Nieuwe Afspraak" />
+                    <Label fx:id="appointmentLabel" id="appointmentLabel" text="Nieuwe Afspraak" />
                 </HBox>
                 <HBox styleClass="formField" >
                     <Label text="Klachten Omschrijving:" />

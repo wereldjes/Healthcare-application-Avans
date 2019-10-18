@@ -128,17 +128,32 @@ public class AppointmentDAO implements IAppointment {
     }
 
     @Override
-    public Appointment getAppointment(Appointment a) {
+    public Appointment getAppointment(int id) {
         Connection con = null;
+        Appointment appointment = null;
         String query = "SELECT * FROM appointment WHERE id = ?";
 
         try {
             con = MysqlConnector.getInstance().connect();
             PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                int appointmentId = rs.getInt("id");
+                String problemDescription = rs.getString("problem_description");
+                Date startdateMedicine = rs.getDate("startdate_medicine");
+                Date enddateMedicine = rs.getDate("enddate_medicine");
+                String diseaseName = rs.getString("disease_name");
+                String medicineName = rs.getString("medicine_name");
+                int patientId = rs.getInt("patient_id");
+
+                appointment = new Appointment(appointmentId, problemDescription, startdateMedicine, enddateMedicine, diseaseName, medicineName, patientId);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(AppointmentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return appointment;
     }
 
 }
